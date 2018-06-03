@@ -1,0 +1,7 @@
+/node_modules
+/shrinkwrap.yaml
+/package-lock.json
+.DS_Store
+/index.js
+/index.js.map
+/index.d.ts
