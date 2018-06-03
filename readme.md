@@ -14,13 +14,26 @@ Inspired by `yoshuawuyts/nanotask`, this function manages a queue of microtasks,
 
 ## Usage
 
+In JavaScript / Node.js:
+
 ```js
-const quicktask = require('quicktask')
+const quicktask = require('quicktask').default
 const schedule = quicktask()
 
 schedule(function () {
   console.log('resolved at the start of the next frame')
 })
+```
+
+In TypeScript:
+
+```typescript
+import quicktask from 'quicktask';
+const schedule = quicktask();
+
+schedule(() => {
+  console.log('resolved at the start of the next frame');
+});
 ```
 
 ## API
