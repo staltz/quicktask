@@ -1,6 +1,6 @@
 {
   "name": "quicktask",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tiny microtask queue scheduler for all environments",
   "main": "index.js",
   "scripts": {
