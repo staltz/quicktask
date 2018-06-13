@@ -1,3 +1,4 @@
+declare var process
 export default function microtask(): (fn: Function) => void {
   if (typeof MutationObserver !== 'undefined') {
     const node: any = document.createTextNode('');
