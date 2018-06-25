@@ -9,6 +9,7 @@ npm install --save quicktask
 Inspired by `yoshuawuyts/nanotask`, this function manages a queue of microtasks, but focuses on being cross environment (not just browser) and with a tiny implementation. It returns a "scheduleMicrotask" helper.
 
 - Uses MutationObserver in the browser, supported by many browsers, including IE11.
+- Uses setImmediate if available.
 - Uses process.nextTick in Node.js.
 - Uses setTimeout otherwise.
 

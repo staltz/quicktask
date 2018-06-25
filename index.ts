@@ -12,6 +12,8 @@ export default function microtask(): (fn: Function) => void {
       queue.push(fn);
       node.data = i = 1 - i;
     };
+  } else if (typeof setImmediate !== 'undefined') {
+    return setImmediate;
   } else if (typeof process !== 'undefined') {
     return process.nextTick;
   } else {
