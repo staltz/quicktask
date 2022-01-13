@@ -8,22 +8,24 @@ npm install --save quicktask
 
 Inspired by `yoshuawuyts/nanotask`, this function manages a queue of microtasks, but focuses on being cross environment (not just browser) and with a tiny implementation. It returns a "scheduleMicrotask" helper.
 
-- Uses MutationObserver in the browser, supported by many browsers, including IE11.
-- Uses setImmediate if available.
-- Uses process.nextTick in Node.js.
-- Uses setTimeout otherwise.
+- Uses `queueMicrotask` if available
+- Otherwise uses `setImmediate` if available.
+- Otherwise uses `process.nextTick` in Node.js.
+- Otherwise uses `setTimeout` otherwise.
+
+**Unless you need to support old runtimes or Internet Explorer, we recommend using `queueMicrotask` directly**. That said, this library is less than 1kB in size.
 
 ## Usage
 
 In JavaScript / Node.js:
 
 ```js
-const quicktask = require('quicktask').default
-const schedule = quicktask()
+const quicktask = require('quicktask').default;
+const schedule = quicktask();
 
 schedule(function () {
-  console.log('resolved at the start of the next frame')
-})
+  console.log('resolved at the start of the next frame');
+});
 ```
 
 In TypeScript:
@@ -40,10 +42,13 @@ schedule(() => {
 ## API
 
 ### `const schedule = quicktask()`
+
 Create a new Quicktask instance.
 
 ### `schedule(fn)`
+
 Queue a function to run before the end of the current event loop.
 
 ## License
+
 [MIT](https://tldrlegal.com/license/mit-license)
